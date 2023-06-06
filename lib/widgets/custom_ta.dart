@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class CustomTextAns extends StatelessWidget {
   final String question;
-  var answer;
-  CustomTextAns({super.key, this.question = "Question", this.answer = 100.00});
+  final double answer;
+  const CustomTextAns(
+      {super.key, this.question = "Question", this.answer = 100.00});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class CustomTextAns extends StatelessWidget {
           style: TextStyle(fontSize: 14),
         ),
         Text(
-          answer.toString(),
+          answer.toStringAsFixed(2),
           style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
         ),
       ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:millsettingapp/shared/textfielddecoration.dart';
+import 'package:millsettingapp/shared/textstyles.dart';
 
 class CustomTextField extends StatefulWidget {
   final String hint;
@@ -13,15 +14,15 @@ class CustomTextField extends StatefulWidget {
 class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: (widget.controller != null) ? (widget.controller) : (null),
-      keyboardType: TextInputType.numberWithOptions(decimal: true),
-      style: TextStyle(
-        fontSize: 14,
-        height: 0.9,
-      ),
-      decoration: inputDecoration.copyWith(
-        hintText: widget.hint,
+    return Container(
+      height: 40,
+      child: TextField(
+        controller: (widget.controller != null) ? (widget.controller) : (null),
+        keyboardType: TextInputType.numberWithOptions(decimal: true),
+        style: textfieldTextStyle,
+        decoration: inputDecoration.copyWith(
+          hintText: widget.hint,
+        ),
       ),
     );
   }

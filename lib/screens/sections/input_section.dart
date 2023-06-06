@@ -4,6 +4,7 @@ import 'package:millsettingapp/process/models/millmodels.dart';
 import 'package:millsettingapp/shared/colors.dart';
 import 'package:millsettingapp/shared/textfielddecoration.dart';
 import 'package:millsettingapp/shared/textstyles.dart';
+import 'package:millsettingapp/testFunctions/autoInput.dart';
 import 'package:millsettingapp/widgets/millinput.dart';
 import 'package:millsettingapp/widgets/custom_textfield.dart';
 
@@ -77,6 +78,16 @@ class _InputSectionState extends State<InputSection> {
     }
   }
 
+  autoFillInput() {
+    widget.result(autoinputModel);
+  }
+
+  clear() {
+    for (TextEditingController controller in controllers) {
+      controller.text = "";
+    }
+  }
+
   @override
   void initState() {
     // TODO: implement initState
@@ -87,7 +98,7 @@ class _InputSectionState extends State<InputSection> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+      margin: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
       child: Card(
         elevation: 7,
         shape: RoundedRectangleBorder(
@@ -207,7 +218,7 @@ class _InputSectionState extends State<InputSection> {
                   Expanded(
                     child: OutlinedButton(
                       onPressed: () {
-                        widget.result('string');
+                        clear();
                       },
                       style: OutlinedButton.styleFrom(
                         backgroundColor: Colors.white.withAlpha(100),
@@ -231,6 +242,9 @@ class _InputSectionState extends State<InputSection> {
                     child: ElevatedButton(
                       onPressed: () {
                         onSumbit();
+                      },
+                      onLongPress: () {
+                        autoFillInput();
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: themecolor,

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:millsettingapp/process/calculator.dart';
 import 'package:millsettingapp/process/models/input_model.dart';
 import 'package:millsettingapp/process/models/output_model.dart';
+import 'package:millsettingapp/screens/sections/input_section.dart';
+import 'package:millsettingapp/screens/sections/output_section.dart';
 import 'package:millsettingapp/shared/colors.dart';
-import 'package:millsettingapp/widgets/sections/input_section.dart';
-import 'package:millsettingapp/widgets/sections/output_section.dart';
 
 class CalculationScreen extends StatefulWidget {
   const CalculationScreen({Key? key}) : super(key: key);
@@ -14,10 +14,14 @@ class CalculationScreen extends StatefulWidget {
 }
 
 class _CalculationScreenState extends State<CalculationScreen> {
+  OutputModel? outputModel;
+
   onSubmit(InputModel inputModel) {
     Calculator calculator = Calculator();
     OutputModel outputModel = calculator.Calculate(inputModel);
-    outputModel.printer();
+    // outputModel.printer();
+    this.outputModel = outputModel;
+    setState(() {});
   }
 
   @override
@@ -36,7 +40,9 @@ class _CalculationScreenState extends State<CalculationScreen> {
                 onSubmit(inputmodel);
               },
             ),
-            OutputSection(),
+            OutputSection(
+              outputModel: outputModel,
+            ),
           ],
         ),
       ),

@@ -14,4 +14,25 @@ class OutputModel {
       mill.printer();
     }
   }
+
+  factory OutputModel.outputZero() {
+    return OutputModel(
+      commonoutput: [
+        OutputMillModel(feed: 0.0, disch: 0.0, trash: 0.0),
+        OutputMillModel(feed: 0.0, disch: 0.0, trash: 0.0),
+        OutputMillModel(feed: 0.0, disch: 0.0, trash: 0.0),
+        OutputMillModel(feed: 0.0, disch: 0.0, trash: 0.0),
+      ],
+      trambleoutput: [
+        OutputMillModel(feed: 0.0, disch: 0.0, trash: 0.0),
+        OutputMillModel(feed: 0.0, disch: 0.0, trash: 0.0),
+        OutputMillModel(feed: 0.0, disch: 0.0, trash: 0.0),
+        OutputMillModel(feed: 0.0, disch: 0.0, trash: 0.0),
+      ],
+    );
+  }
+
+  // factory OutputModel.roundValues(OutputModel outputModel){
+  //   // return OutputModel.outputZero();
+  // }
 }
