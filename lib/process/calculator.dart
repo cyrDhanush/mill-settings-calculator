@@ -2,6 +2,7 @@ import 'package:millsettingapp/process/defaultvalueManager.dart';
 import 'package:millsettingapp/process/models/defval_model.dart';
 import 'package:millsettingapp/process/models/input_model.dart';
 import 'package:millsettingapp/process/models/millmodels.dart';
+import 'package:millsettingapp/process/models/output_model.dart';
 
 class Calculator {
   List<OutputMillModel> CalculatePerMill(
@@ -42,8 +43,9 @@ class Calculator {
     var ttrash = (cmn + trash) - 380;
 
     return [
-      OutputMillModel(feed: feed, disch: disch, trash: trash),
-      OutputMillModel(feed: tfeed, disch: tdisch, trash: ttrash),
+      OutputMillModel(feed: feed, disch: disch, trash: trash), // normal output
+      OutputMillModel(
+          feed: tfeed, disch: tdisch, trash: ttrash), // tramble output
     ];
   }
 
@@ -57,6 +59,22 @@ class Calculator {
         CalculatePerMill(inputModel, defValuesModel, 3);
     List<OutputMillModel> millModel4 =
         CalculatePerMill(inputModel, defValuesModel, 4);
+
+    OutputModel outputModel = OutputModel(
+      commonoutput: [
+        millModel1[0],
+        millModel2[0],
+        millModel3[0],
+        millModel4[0],
+      ],
+      trambleoutput: [
+        millModel1[1],
+        millModel2[1],
+        millModel3[1],
+        millModel4[1],
+      ],
+    );
+
     // print(millModel1[0].printer());
     // print(millModel1[1].printer());
     // print(millModel2[0].printer());
@@ -65,6 +83,8 @@ class Calculator {
     // print(millModel3[1].printer());
     // print(millModel4[0].printer());
     // print(millModel4[1].printer());
+
+    return outputModel;
   }
 }
 

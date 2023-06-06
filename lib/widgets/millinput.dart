@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:millsettingapp/shared/colors.dart';
 import 'package:millsettingapp/shared/textstyles.dart';
-import 'package:millsettingapp/widgets/textfield.dart';
+import 'package:millsettingapp/widgets/custom_textfield.dart';
 
 class MillInput extends StatefulWidget {
-  const MillInput({super.key});
+  final String millname;
+  final List<String> names;
+  final List<TextEditingController> controllers;
+  const MillInput(
+      {super.key,
+      this.millname = "Mill I",
+      required this.names,
+      required this.controllers});
 
   @override
   State<MillInput> createState() => _MillInputState();
@@ -31,22 +38,25 @@ class _MillInputState extends State<MillInput> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Mill I",
+                  widget.millname,
                   style: heading2,
                 ),
               ],
             ),
             SizedBox(height: 10),
             CustomTextField(
-              hint: "Top",
+              hint: widget.names[0],
+              controller: widget.controllers[0],
             ),
             SizedBox(height: 7),
             CustomTextField(
-              hint: "Feed",
+              hint: widget.names[1],
+              controller: widget.controllers[1],
             ),
             SizedBox(height: 7),
             CustomTextField(
-              hint: "Disch",
+              hint: widget.names[2],
+              controller: widget.controllers[2],
             ),
           ],
         ),

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:millsettingapp/shared/colors.dart';
-import 'package:millsettingapp/shared/textfielddecoration.dart';
 import 'package:millsettingapp/shared/textstyles.dart';
-import 'package:millsettingapp/widgets/millinput.dart';
-import 'package:millsettingapp/widgets/textfield.dart';
+import 'package:millsettingapp/widgets/milloutput.dart';
 
-class InputSection extends StatelessWidget {
-  const InputSection({super.key});
+class OutputSection extends StatefulWidget {
+  const OutputSection({super.key});
 
+  @override
+  State<OutputSection> createState() => _OutputSectionState();
+}
+
+class _OutputSectionState extends State<OutputSection> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,66 +31,63 @@ class InputSection extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Inputs",
-                    style: headings,
-                  ),
-                ],
+              Text(
+                "Output",
+                style: headings,
               ),
               SizedBox(
                 height: 10,
               ),
-              Container(
-                width: 200,
-                child: CustomTextField(
-                  hint: "TCH",
-                ),
+              Row(
+                children: [
+                  Expanded(child: MillOutput()),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Expanded(child: MillOutput()),
+                ],
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              Row(
+                children: [
+                  Expanded(child: MillOutput()),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Expanded(child: MillOutput()),
+                ],
               ),
               SizedBox(
                 height: 20,
               ),
+              Text(
+                "Tramble Output",
+                style: headings,
+              ),
+              SizedBox(
+                height: 10,
+              ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    "Roller OD",
-                    style: headings,
+                  Expanded(child: MillOutput()),
+                  SizedBox(
+                    width: 5,
                   ),
+                  Expanded(child: MillOutput()),
                 ],
               ),
               SizedBox(
-                height: 15,
+                height: 5,
               ),
               Row(
                 children: [
-                  Expanded(
-                    child: MillInput(),
-                  ),
+                  Expanded(child: MillOutput()),
                   SizedBox(
-                    width: 15,
+                    width: 5,
                   ),
-                  Expanded(
-                    child: MillInput(),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    child: MillInput(),
-                  ),
-                  SizedBox(
-                    width: 15,
-                  ),
-                  Expanded(
-                    child: MillInput(),
-                  ),
+                  Expanded(child: MillOutput()),
                 ],
               ),
             ],

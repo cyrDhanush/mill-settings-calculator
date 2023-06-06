@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:millsettingapp/process/defaultvalueManager.dart';
 import 'package:millsettingapp/screens/calculation_screen.dart';
 import 'package:millsettingapp/shared/colors.dart';
 
 void main() {
+  DefaultValueManager defaultValueManager = DefaultValueManager();
   SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(statusBarColor: Colors.white.withAlpha(0)));
   runApp(MyApp());

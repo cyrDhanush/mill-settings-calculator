@@ -14,6 +14,12 @@ class InputMillModel {
       required this.top,
       required this.feed,
       required this.disch});
+
+  printer() {
+    print(this.top);
+    print(this.feed);
+    print(this.disch);
+  }
 }
 
 class OutputMillModel {

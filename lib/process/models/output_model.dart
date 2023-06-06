@@ -5,4 +5,13 @@ class OutputModel {
   final List<OutputMillModel> trambleoutput;
 
   OutputModel({required this.commonoutput, required this.trambleoutput});
+
+  printer() {
+    for (OutputMillModel mill in commonoutput) {
+      mill.printer();
+    }
+    for (OutputMillModel mill in trambleoutput) {
+      mill.printer();
+    }
+  }
 }
