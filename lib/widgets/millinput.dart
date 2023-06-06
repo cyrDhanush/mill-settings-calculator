@@ -6,12 +6,12 @@ import 'package:millsettingapp/widgets/custom_textfield.dart';
 class MillInput extends StatefulWidget {
   final String millname;
   final List<String> names;
-  final List<TextEditingController> controllers;
+  final List<TextEditingController?> controllers;
   const MillInput(
       {super.key,
       this.millname = "Mill I",
-      required this.names,
-      required this.controllers});
+      this.names = const ['name1', 'name2', 'name3'],
+      this.controllers = const [null, null, null]});
 
   @override
   State<MillInput> createState() => _MillInputState();
